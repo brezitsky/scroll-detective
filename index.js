@@ -1,5 +1,5 @@
 class ScrollDetective {
-	constructor() {
+	constructor(settings) {
 		// padding of viewport watching. If > 0 - view size is smaller,
 		// else view size is bigger. Default = 0;
 		this.padding = 0;
@@ -10,6 +10,8 @@ class ScrollDetective {
 		// scroll timeout to watch blocks states
 		// default = 100 ms
 		this.delay = 100;
+		
+		this.settings = settings || {};
 	}
 	
 	setPadding(integer) {
@@ -39,7 +41,7 @@ class ScrollDetective {
 					el.classList.add("visible-state");
 
 					// thigger an event for element
-					$(el).trigger("scrollwatcher-state:visible");
+					if(this.settings.onVisible) this.settings.onVisible(el)
 				}
 				break;
 
@@ -50,7 +52,7 @@ class ScrollDetective {
 					el.classList.add("invisible-state");
 
 					// thigger an event for element
-					$(el).trigger("scrollwatcher-state:invisible");
+					if(this.settings.onInvisible) this.settings.onInvisible(el)
 				}
 				break;
 
@@ -61,7 +63,7 @@ class ScrollDetective {
 					el.classList.add("partly-visible-state");
 
 					// thigger an event for element
-					$(el).trigger("scrollwatcher-state:partly-visible");
+					if(this.settings.onPartlyVisible) this.settings.onPartlyVisible(el)
 				}
 				break;
 		}
