@@ -104,7 +104,7 @@ class ScrollDetective {
 	
 			tm = setTimeout(() => {
 				this.checkStates();
-			}, _this.delay);
+			}, this.delay);
 		});
 	};
 }
