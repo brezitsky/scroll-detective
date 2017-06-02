@@ -1,3 +1,5 @@
+'use strict';
+
 class ScrollDetective {
 	constructor(settings) {
 		// padding of viewport watching. If > 0 - view size is smaller,
@@ -16,21 +18,21 @@ class ScrollDetective {
 	
 	setPadding(integer) {
 		this.padding = integer;
-	};
+	}
 	
 	setDelay(miliseconds) {
 		this.delay = miliseconds;
-	};
+	}
 	
 	addBlocks(selector) {	
 		document.querySelectorAll(selector).forEach(block => {
 			this.blocks.push(block);
 		});
-	};
+	}
 	
 	getBlocks() {
 		return this.blocks;
-	};
+	}
 	
 	setState(state, el) {
 		switch (state) {
@@ -96,7 +98,7 @@ class ScrollDetective {
 				this.setState("partly-visible", block);
 			}
 		});
-	};
+	}
 	
 	addScrollEvent() {
 		var tm;
@@ -108,7 +110,7 @@ class ScrollDetective {
 				this.checkStates();
 			}, this.delay);
 		});
-	};
+	}
 }
 
 module.exports = ScrollDetective;
