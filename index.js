@@ -8,8 +8,8 @@ class ScrollDetective {
 		this.blocks = [];
 	
 		// scroll timeout to watch blocks states
-		// default = 100 ms
-		this.delay = 100;
+		// default = 0 ms
+		this.delay = 0;
 		
 		this.settings = settings || {};
 	}
