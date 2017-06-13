@@ -24,10 +24,11 @@ class ScrollDetective {
 		this.delay = miliseconds;
 	}
 	
-	addBlocks(selector) {	
-		document.querySelectorAll(selector).forEach(block => {
-			this.blocks.push(block);
-		});
+	addBlocks(selector) {
+		var a = document.querySelectorAll(selector);
+		for(var i = 0; i < a.length; i++) {
+			this.blocks.push(a[i]);
+		}
 	}
 	
 	getBlocks() {
